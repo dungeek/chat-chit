@@ -1,3 +1,10 @@
+<head>
+    <meta charset="utf-8" />
+    <title>Tuts+ Chat Application</title>
+    <meta name="description" content="Chat Application" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
 <div id="sign-in">
     <input id="username" placeholder="username"/>
     <input id="password" type="password" placeholder="password"/>
@@ -5,11 +12,17 @@
 </div>
     
 <div id="chat-box" hidden>
-    <input id="message" placeholder="message"/>
-    <input id="receiver" placeholder="to whom?"/>
-    <button id="send-button">send</button>
-    <p id="inbox"></p>
+    <div id="menu">
+        <p class="welcome">Welcome to my Chat-box <b></b></p>
+        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+    </div>
+    <div id="inbox"></div>
+        <input  type="text" id="message" placeholder="Message"/>
+       <input type="text" id="receiver" placeholder="to who?"/>
+        <button id="send-button">Send</button>
+  
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
 <script src="script.js"></script>

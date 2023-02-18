@@ -1,4 +1,5 @@
 const express = require("express");
+const mongo = require('mongodb');
 
 //Main block
 {
@@ -18,7 +19,23 @@ const express = require("express");
   server.listen(process.env.PORT || 4000);
 }
 
-const databaseUsers = require("./databaseUsers.json");
+
+//Database Mongodb
+// {
+//   const mongoClient = require("mongodb").MongoClient;
+//   const url = 'mongodb://localhost:27017/chat'
+//   const connectedUsers = [];
+  
+//   mongoClient.connect(url, function(err, db) {
+//     if (err) throw err;
+//     console.log("Database created!");
+//     db.close();
+//   });
+  
+//   const databaseUsers
+// }
+
+const databaseUsers = require('./databaseUsers.json');
 const connectedUsers = [];
 
 //SHELL

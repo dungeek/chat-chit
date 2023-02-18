@@ -14,6 +14,7 @@
         const username = document.getElementById('username');
         const password = document.getElementById('password');
         const join = document.getElementById('join-button');
+        const exit = document.getElementById('exit');
     
         addEventEnterToClick(username, join);
         addEventEnterToClick(password, join);
@@ -25,6 +26,11 @@
                 password : password.value
             });
         };
+        
+        exit.onclick = () => {
+            window.location.reload();
+        }
+
     }
 
     //sub-function
@@ -47,19 +53,19 @@
          const message = document.getElementById('message');
          const receiver = document.getElementById('receiver');
          const send_button = document.getElementById('send-button');
-         
+
          addEventEnterToClick(message, send_button);
-         addEventEnterToClick(receiver, send_button);
+         //addEventEnterToClick(receiver, send_button);
 
          send_button.onclick = () => {
-            if(message.value !== ''){
+            if(message.value !== '' && receiver.value !== ''){
                 socket.emit('send-message', 
                 {
                     message: message.value,
-                    receiver: receiver.value    
+                    receiver: receiver.value
                 }
                 )
-            }
+            }  
          };
          
          //Display chat box
