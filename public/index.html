@@ -1,14 +1,19 @@
 <head>
     <meta charset="utf-8" />
-    <title>Tuts+ Chat Application</title>
+    <title>Dungeek+ chat-chit </title>
     <meta name="description" content="Chat Application" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <div id="sign-in">
-    <input id="username" placeholder="username"/>
-    <input id="password" type="password" placeholder="password"/>
-    <button id="join-button">join</button>
+    <center> <h1> Login Box </h1> </center>    
+        <div class="container">   
+            <label>Username : </label>   
+            <input id="username" type="text" placeholder="Enter Username" name="username" class="input" required>  
+            <label>Password : </label>   
+            <input id="password"  type="password" placeholder="Enter Password" name="password" class="input" required>  
+            <button  id="join-button">Login</button>   
+        </div>   
 </div>
     
 <div id="chat-box" hidden>
@@ -20,7 +25,6 @@
         <input  type="text" id="message" placeholder="Message"/>
        <input type="text" id="receiver" placeholder="to who?"/>
         <button id="send-button">Send</button>
-  
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -1,8 +1,12 @@
 const express = require("express");
-const mongo = require('mongodb');
+const config = require('./config');
+const Database = require('./db'); //Execption of Importing flow, for setting up
+const MessageRouter = require("./routers/message");
 
 //Main block
 {
+  Database.connect(config.MONGODB_URL, config.MONGODB_DB);
+
   const app = express();
   const server = require("http").createServer(app);
 
@@ -16,29 +20,25 @@ const mongo = require('mongodb');
   app.use(express.static("public"));
   app.get("/", (_, res) => res.sendFile("index.html"));
 
-  server.listen(process.env.PORT || 4000);
+  // Configure bodyparser to handle post requests
+  const bodyParser = require("body-parser");
+  app.use(
+    bodyParser.urlencoded({
+      extended: true,
+    })
+  );
+
+  app.use("/message", MessageRouter);
+
+  server.listen(config.HTTP_PORT);
 }
 
 
-//Database Mongodb
-// {
-//   const mongoClient = require("mongodb").MongoClient;
-//   const url = 'mongodb://localhost:27017/chat'
-//   const connectedUsers = [];
-  
-//   mongoClient.connect(url, function(err, db) {
-//     if (err) throw err;
-//     console.log("Database created!");
-//     db.close();
-//   });
-  
-//   const databaseUsers
-// }
-
-const databaseUsers = require('./databaseUsers.json');
+const databaseUsers = require("./databaseUsers.json");
 const connectedUsers = [];
 
-//SHELL
+
+//SHELL handling real-time chat
 {
   function handleSocketConnection(clientSocket) {
     clientSocket.emit("connected", { id: clientSocket.id });

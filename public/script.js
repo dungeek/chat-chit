@@ -16,7 +16,6 @@
         const join = document.getElementById('join-button');
         const exit = document.getElementById('exit');
     
-        addEventEnterToClick(username, join);
         addEventEnterToClick(password, join);
     
         join.onclick = () => {
